@@ -1,0 +1,4 @@
+/about/
+/registration
+/book/
+/menu/

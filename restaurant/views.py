@@ -24,16 +24,14 @@ def home(request):
 def about(request):
     return render(request, 'about.html')
 
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
+
 def reservations(request):
     date = request.GET.get('date',datetime.today().date())
     bookings = Booking.objects.all()
     booking_json = serializers.serialize('json', bookings)
     return render(request, 'bookings.html',{"bookings":booking_json})
 
-@api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
+
 def book(request):
     form = BookingForm()
     if request.method == 'POST':
@@ -72,16 +70,7 @@ def registration(request):
             return render(request, 'menu.html')
     return render(request, 'registration.html', {'forms':form})
 
-# def login
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             
-#         else:
-#             return HttpResponse('invalid user')
 
-
-@api_view(['GET', 'POST'])
-@permission_classes([IsAuthenticated])
 @csrf_exempt
 def bookings(request):
     if request.method == 'POST':

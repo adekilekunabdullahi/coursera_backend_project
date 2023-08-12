@@ -38,11 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # The settings for app updated for the Graded assessment
-    #'accounts',
     'restaurant',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -82,12 +78,8 @@ WSGI_APPLICATION = 'littlelemon.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'reservations',
-        'HOST' : '127.0.0.1',
-        'PORT' : '3306',
-        'USER' : 'admindjango',
-        'PASSWORD' : 'employee@123!',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -139,8 +131,3 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-DJOSER = {
-    'USER_LOGIN_FIELD': 'username',
-}
-#AUTH_USER_MODEL = 'accounts.User'
